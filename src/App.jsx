@@ -75,7 +75,11 @@ const App = () => {
         inputTodoName={inputTodoName}
         onChange={onTextChange}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       />
+      {incompleteTodos.length >= 5 && (
+        <p style={{ color: "red" }}>登録可能なTODOは5つまで</p>
+      )}
       <IncompleteTodo
         incompleteTodos={incompleteTodos}
         onComplete={onClickComplete}
